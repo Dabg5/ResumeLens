@@ -216,3 +216,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project
+.idea/
+.vscode/
+.DS_Store
