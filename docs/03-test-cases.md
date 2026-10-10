@@ -105,3 +105,11 @@ when it is imported, so it cannot reach the tests.
 | `test_sort_for_all` | `PYTHON, SQL, PANDAS, GIT, REACT` across all 4 profiles | Result contains all 4 profile keys; profile-specific sequences and ignored lists | Evaluates sorting for all profiles in one call |
 | `test_devops_profile_sorting` | `GIT, TERRAFORM, AWS, JENKINS, DOCKER, PYTHON, KUBERNETES` | `PYTHON, DOCKER, KUBERNETES, JENKINS, AWS, TERRAFORM, GIT` | Validates canonical category ordering for DevOps Engineer |
 | `test_data_engineer_profile_sorting` | `GIT, BIGQUERY, AIRFLOW, PANDAS, SQL, PYTHON` | `PYTHON, SQL, PANDAS, AIRFLOW, BIGQUERY, GIT` | Validates canonical category ordering for Data Engineer |
+
+## Candidate DSL (`tests/test_dsl.py`)
+
+| Test | Input / Checks | Expected | Why |
+|---|---|---|---|
+| `test_serializer_round_trip_is_valid` | Candidate data with contact, experience, education, skills and two profile results | `validate(to_dsl(data)).valid` is true and the escaped name is preserved | Confirms the serializer emits grammar accepted by textX without losing data |
+| `test_empty_name_becomes_unknown` | Candidate whose name is empty | The DSL stores `"Unknown"` and validates | Documents the required fallback identity |
+| `test_invalid_sources_are_rejected` (8 cases) | Missing closing brace, lower-case skill, unknown profile, accepted profile without sequence, unclosed string, repeated category, unknown canonical, and a sequence outside a profile alphabet | Every source is invalid with a syntax/lexical or semantic error | Covers the language rejection rules and profile-alphabet constraints |

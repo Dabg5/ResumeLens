@@ -1,0 +1,60 @@
+CandidateProfile:
+    'candidate' name=STRING '{'
+        (contact=Contact)?
+        (experience=Experience)?
+        (education=Education)?
+        skills=Skills
+        classification=Classification
+    '}'
+;
+
+Contact:
+    'contact' '{'
+        ('emails' ':' emails+=STRING[','])?
+        ('phones' ':' phones+=STRING[','])?
+        ('urls' ':' urls+=STRING[','])?
+    '}'
+;
+
+Experience:
+    'experience' '{'
+        ('years' ':' years=INT)?
+        ('periods' ':' periods+=STRING[','])?
+    '}'
+;
+
+Education:
+    'education' '{'
+        entries*=EducationEntry
+    '}'
+;
+
+EducationEntry:
+    degree=STRING ('at' institution=STRING)?
+;
+
+Skills:
+    'skills' '{'
+        groups*=SkillGroup
+    '}'
+;
+
+SkillGroup:
+    category=ID ':' skills+=Canonical[',']
+;
+
+Classification:
+    'classification' '{'
+        results*=ProfileResult
+    '}'
+;
+
+ProfileResult:
+    'profile' profile=ProfileKey ':' verdict=Verdict
+    ('sequence' '[' sequence*=Canonical[','] ']')?
+    ('missing' '[' missing*=STRING[','] ']')?
+;
+
+Canonical: /[A-Z][A-Z0-9_]*/;
+ProfileKey: /[a-z][a-z_]*/;
+Verdict: 'ACCEPTED' | 'REJECTED';
