@@ -110,6 +110,8 @@ when it is imported, so it cannot reach the tests.
 
 | Test | Input / Checks | Expected | Why |
 |---|---|---|---|
-| `test_serializer_round_trip_is_valid` | Candidate data with contact, experience, education, skills and two profile results | `validate(to_dsl(data)).valid` is true and the escaped name is preserved | Confirms the serializer emits grammar accepted by textX without losing data |
+| `test_serializer_round_trip_is_valid` | Candidate data with contact, experience, education, skills and two profile results | `validate(to_dsl(data)).valid` is true and string delimiters are escaped | Confirms the serializer emits grammar accepted by textX |
 | `test_empty_name_becomes_unknown` | Candidate whose name is empty | The DSL stores `"Unknown"` and validates | Documents the required fallback identity |
 | `test_invalid_sources_are_rejected` (8 cases) | Missing closing brace, lower-case skill, unknown profile, accepted profile without sequence, unclosed string, repeated category, unknown canonical, and a sequence outside a profile alphabet | Every source is invalid with a syntax/lexical or semantic error | Covers the language rejection rules and profile-alphabet constraints |
+| `test_markdown_renderer_includes_candidate_and_verdict` | Parsed candidate with accepted and rejected profile results | Markdown includes candidate name and both verdicts | Confirms the summary contains the recognition outcome |
+| `test_html_renderer_escapes_text_and_shows_verdict_badges` | Candidate name containing markup and accepted/rejected results | Markup is escaped and both badge classes appear | Prevents model text from becoming executable HTML and distinguishes outcomes |

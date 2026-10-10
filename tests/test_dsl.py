@@ -2,6 +2,7 @@
 import pytest
 
 from resumelens.dsl.serializer import CandidateData, ProfileVerdict, to_dsl
+from resumelens.dsl.renderer import to_html, to_markdown
 from resumelens.dsl.validator import validate
 
 
@@ -36,6 +37,33 @@ def test_empty_name_becomes_unknown() -> None:
     report = validate(source)
     assert report.valid
     assert report.model.name == "Unknown"
+
+
+def test_markdown_renderer_includes_candidate_and_verdict(candidate: CandidateData) -> None:
+    model = validate(to_dsl(candidate)).model
+    markdown = to_markdown(model)
+    assert "# Candidate: Ada" in markdown
+    assert "full_stack: ACCEPTED" in markdown
+    assert "ml_engineer: REJECTED" in markdown
+
+
+def test_html_renderer_escapes_text_and_shows_verdict_badges() -> None:
+    source = to_dsl(
+        CandidateData(
+            name="<script>alert(1)</script>",
+            skills={"languages": ("PYTHON",)},
+            verdicts=(
+                ProfileVerdict("ml_engineer", True, ("PYTHON",)),
+                ProfileVerdict("full_stack", False, missing=("Version control",)),
+            ),
+        )
+    )
+    model = validate(source).model
+    html = to_html(model)
+    assert "&lt;script&gt;alert(1)&lt;/script&gt;" in html
+    assert "<script>" not in html
+    assert 'class="badge accepted"' in html
+    assert 'class="badge rejected"' in html
 
 
 @pytest.mark.parametrize(
