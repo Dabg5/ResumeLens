@@ -83,11 +83,14 @@ PATTERNS: tuple[PatternSpec, ...] = (
     # --- Academic qualifications ---------------------------------------
     PatternSpec(
         "degree", EDUCATION,
-        rf"\b(?:Bachelor(?:'s)?|Master(?:'s)?|Ph\.?D\.?|B\.?Sc\.?|M\.?Sc\.?|Associate(?:'s)?|Doctorate|Pregrado|Maestr[íi]a|Ingenier[íi]a)(?![A-Za-z])"
-        rf"(?:\s+(?:of|in|en|de)\s+{_CAP}(?:\s+{_CAP}){{0,3}}){{0,2}}",
-        "A degree keyword (Bachelor, Master, PhD, B.Sc., Ingeniería...) "
-        "optionally followed by up to two 'of/in/en/de <Capitalised words>' "
-        "groups, e.g. 'Bachelor of Science in Computer Science'.",
+        rf"\b(?:Ingenier[íi]a\s+(?:(?:de|en|del)\s+)?{_CAP}(?:\s+(?:(?:de|y)\s+)?{_CAP}){{0,2}}"
+        rf"|(?:Bachelor(?:'s)?|Master(?:'s)?|Ph\.?D\.?|B\.?Sc\.?|M\.?Sc\.?|Associate(?:'s)?|Doctorate|Pregrado|Maestr[íi]a)(?![A-Za-z])"
+        rf"(?:\s+(?:of|in|en|de)\s+{_CAP}(?:\s+{_CAP}){{0,3}}){{0,2}})",
+        "Either 'Ingeniería' followed by an optional de/en/del and up to three "
+        "capitalised words ('Ingeniería de Sistemas', 'Ingeniería Informática'), "
+        "or a degree keyword (Bachelor, Master, PhD, B.Sc....) optionally "
+        "followed by up to two 'of/in/en/de <Capitalised words>' groups, e.g. "
+        "'Bachelor of Science in Computer Science'.",
     ),
     PatternSpec(
         "institution", EDUCATION,

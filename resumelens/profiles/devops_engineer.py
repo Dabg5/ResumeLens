@@ -15,6 +15,6 @@ DEVOPS_ENGINEER = Profile(
         Category("CI/CD", ("GITHUB_ACTIONS", "JENKINS", "GITLAB_CI")),
         Category("Cloud", ("AWS", "AZURE", "GCP")),
         Category("Infrastructure as code", ("TERRAFORM", "ANSIBLE"), optional=True),
-        Category("Version control", ("GIT",)),
+        Category("Version control", ("GIT", "GITHUB", "GITLAB", "BITBUCKET")),
     ),
 )

@@ -75,3 +75,18 @@ def test_save_json(tmp_path):
     out = tmp_path / "r.json"
     sample("wednesday_addams.txt").save(out)
     assert "React.js" in out.read_text(encoding="utf-8")
+
+
+@pytest.mark.parametrize("text,expected", [
+    ("Ingeniería de Sistemas", "Ingeniería de Sistemas"),
+    ("Ingeniería Informática", "Ingeniería Informática"),
+    ("Ingeniería de Sistemas y Computación", "Ingeniería de Sistemas y Computación"),
+    ("Bachelor of Science in Computer Science", "Bachelor of Science in Computer Science"),
+    ("B.Sc. in Mathematics", "B.Sc. in Mathematics"),
+])
+def test_degrees(text, expected):
+    assert extract(text).degrees == [expected]
+
+
+def test_ingenieria_alone_is_not_a_degree():
+    assert extract("trabajo de ingeniería general").degrees == []

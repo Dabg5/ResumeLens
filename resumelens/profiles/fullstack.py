@@ -19,6 +19,6 @@ FULL_STACK = Profile(
              "ORACLE", "MONGODB", "CASSANDRA", "DYNAMODB"),
         ),
         Category("API", ("REST_API",), optional=True),
-        Category("Version control", ("GIT",)),
+        Category("Version control", ("GIT", "GITHUB", "GITLAB", "BITBUCKET")),
     ),
 )

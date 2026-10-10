@@ -7,12 +7,12 @@ ML_ENGINEER = Profile(
         "Predictive/learning-based systems: Python, a data-processing library, "
         "a machine-learning framework, SQL and Git."
     ),
-    automaton_type="NFA",
+    automaton_type="DFA",
     categories=(
         Category("Language", ("PYTHON",)),
         Category("Data processing", ("PANDAS", "NUMPY")),
         Category("ML framework", ("SCIKIT_LEARN", "TENSORFLOW", "PYTORCH", "KERAS")),
         Category("Database", ("SQL", "POSTGRESQL", "MYSQL")),
-        Category("Version control", ("GIT",)),
+        Category("Version control", ("GIT", "GITHUB", "GITLAB", "BITBUCKET")),
     ),
 )

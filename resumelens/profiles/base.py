@@ -19,7 +19,7 @@ class Profile:
     key: str
     name: str
     description: str
-    automaton_type: str  # "DFA", "NFA" or "ε-NFA"; justified in docs/02-formalization.md
+    automaton_type: str  # "DFA", "NFA" or "ε-NFA"; justified in docs/02b-automata.md
     categories: tuple[Category, ...]
 
     def all_skills(self) -> tuple[str, ...]:

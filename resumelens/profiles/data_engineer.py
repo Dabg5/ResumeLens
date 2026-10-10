@@ -7,13 +7,13 @@ DATA_ENGINEER = Profile(
         "Data pipelines: Python, SQL, a processing library, a workflow "
         "orchestrator, a data warehouse and Git."
     ),
-    automaton_type="NFA",
+    automaton_type="DFA",
     categories=(
         Category("Language", ("PYTHON",)),
         Category("Query language", ("SQL", "POSTGRESQL", "MYSQL")),
         Category("Processing", ("PANDAS", "PYSPARK")),
         Category("Orchestration", ("AIRFLOW",)),
         Category("Data warehouse", ("BIGQUERY", "SNOWFLAKE", "REDSHIFT")),
-        Category("Version control", ("GIT",)),
+        Category("Version control", ("GIT", "GITHUB", "GITLAB", "BITBUCKET")),
     ),
 )
