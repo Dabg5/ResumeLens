@@ -70,3 +70,24 @@ when it is imported, so it cannot reach the tests.
 | `test_parallel_edges_can_stay_separate` | with `merge_parallel=False` there are two edges | Needed to draw transducers with different outputs |
 | `test_duplicate_labels_are_not_repeated` | the same label twice is drawn once | Avoids "X, X" |
 | `test_export_svg` | an SVG file is written | Requires the Graphviz program; skipped if it is not installed |
+
+## Qualification normalization transducers (`tests/test_transducers.py`)
+
+| Test | Input / Checks | Expected | Why |
+|---|---|---|---|
+| `test_pyformlang_fst_smoke` | Minimal 2-state FST with transitions on "a" | `[["X"]]` on "a", `[]` on "b" | Verifies pyformlang FST translation generator semantics |
+| `test_clean_fst_equivalent_to_alias_key` | All 228 surface forms in `ALIASES` | `clean(form) == alias_key(form)` | Ensures T_clean matches the canonical cleaning key |
+| `test_clean_fst_separators_and_case` | "Node.js", "React.js", "C++", "C#", "Spring-Boot", "CI/CD", "Amazon Web Services", "Postgre SQL" | "nodejs", "reactjs", "c++", "c#", "springboot", "cicd", "amazonwebservices", "postgresql" | Lower-casing and deletion of `.`, `-`, `_`, `/` and spaces |
+| `test_clean_fst_empty` | Empty string `""` | `""` | Empty string edge case on start/final state q0 |
+| `test_clean_fst_invalid_char` | `"@invalid!"` | `None` | Characters outside the cleaning alphabet reject the path |
+| `test_every_alias_form_translates_to_canonical` | All 228 surface forms in `ALIASES` | `translate(form) == canonical_of(form) == canonical` | Two-level transducer maps every known alias to its canonical qualification |
+| `test_end_marker_resolves_prefixes` | "Java" vs "JavaScript", "Git" vs "GitHub" | "JAVA", "JAVASCRIPT", "GIT", "GITHUB" | The `$` end marker distinguishes prefix overlaps in the trie |
+| `test_unknown_and_json_are_none` | "JSON", "COBOL-ish thing", "unknown_tool", `""` | `None` | Unknown qualifications and false substrings are not recognized |
+| `test_fst_tuples_are_consistent` | All 6 transducers (`clean` and the 5 group lexicons) | `is_consistent() == True` | Start/final states are in Q, transitions stay strictly within Q, Σ, Γ |
+| `test_fst_tuple_edges_format` | Edges from T_clean and T_lex_tools | Transitions with format `a : a`, `. : ε`, `$ : GIT` | Formats transitions for graphviz visualization |
+| `test_fst_tuple_as_markdown` | T_clean tuple | Markdown headers, state counts, transition table | Formal documentation rendering |
+| `test_normalize_all` | `["React.js", "Python", "JSON", "Docker"]` | 4 `Normalization` objects with raw and canonical values | Preserves extraction items with their canonical mapping |
+| `test_canonical_skills_dedupes_and_filters_none` | `["React.js", "Python", "JSON", "React", "Docker", "Python 3"]` | `("REACT", "PYTHON", "DOCKER")` | Drops None and duplicates while preserving first appearance |
+| `test_canonical_skills_empty` | `[]` | `()` | Empty collection edge case |
+| `test_custom_lexicon_build` | Custom lexicon with "TOOL_A" and "TOOL_B" | Translates "toola$" to "TOOL_A", rejects without `$` | Generative trie builder works on arbitrary alias sets |
+| `test_transducers_dict_keys` | Transducers dictionary | Contains `clean`, `languages`, `frameworks`, `databases`, `tools`, `other` | All five skill categories plus cleaning are available |
