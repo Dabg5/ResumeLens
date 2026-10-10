@@ -91,3 +91,17 @@ when it is imported, so it cannot reach the tests.
 | `test_canonical_skills_empty` | `[]` | `()` | Empty collection edge case |
 | `test_custom_lexicon_build` | Custom lexicon with "TOOL_A" and "TOOL_B" | Translates "toola$" to "TOOL_A", rejects without `$` | Generative trie builder works on arbitrary alias sets |
 | `test_transducers_dict_keys` | Transducers dictionary | Contains `clean`, `languages`, `frameworks`, `databases`, `tools`, `other` | All five skill categories plus cleaning are available |
+
+## Profile-driven canonical sorting (`tests/test_sorter.py`)
+
+| Test | Input / Checks | Expected | Why |
+|---|---|---|---|
+| `test_task_statement_full_stack_order` | `GIT, NODE_JS, JAVASCRIPT, POSTGRESQL, REACT` | `JAVASCRIPT, REACT, NODE_JS, POSTGRESQL, GIT` | Reproduces the exact canonical sorting example from the task statement |
+| `test_ignored_skills_routed_separately` | `PYTHON, DOCKER, JAVASCRIPT, GIT, AWS` for Full Stack | sequence: `JAVASCRIPT, GIT`; ignored: `PYTHON, DOCKER, AWS` | Skills outside the profile are not discarded silently but reported in `ignored` |
+| `test_deduplication` | `JAVASCRIPT, REACT, JAVASCRIPT, REACT, GIT` | sequence: `JAVASCRIPT, REACT, GIT`; ignored: `()` | Repeated qualifications are pruned to their first appearance |
+| `test_multiple_skills_in_same_category_preserves_original_order` | `NUMPY, PYTHON, PANDAS, GIT` for ML Engineer | sequence: `PYTHON, NUMPY, PANDAS, GIT` | Multiple skills within the same category preserve their relative order of appearance |
+| `test_empty_canonicals` | `[]` for Full Stack | sequence: `()`; ignored: `()` | Empty qualifications edge case |
+| `test_all_ignored` | `AWS, DOCKER, KUBERNETES` for Full Stack | sequence: `()`; ignored: `AWS, DOCKER, KUBERNETES` | Entirely non-matching input routed to `ignored` |
+| `test_sort_for_all` | `PYTHON, SQL, PANDAS, GIT, REACT` across all 4 profiles | Result contains all 4 profile keys; profile-specific sequences and ignored lists | Evaluates sorting for all profiles in one call |
+| `test_devops_profile_sorting` | `GIT, TERRAFORM, AWS, JENKINS, DOCKER, PYTHON, KUBERNETES` | `PYTHON, DOCKER, KUBERNETES, JENKINS, AWS, TERRAFORM, GIT` | Validates canonical category ordering for DevOps Engineer |
+| `test_data_engineer_profile_sorting` | `GIT, BIGQUERY, AIRFLOW, PANDAS, SQL, PYTHON` | `PYTHON, SQL, PANDAS, AIRFLOW, BIGQUERY, GIT` | Validates canonical category ordering for Data Engineer |
