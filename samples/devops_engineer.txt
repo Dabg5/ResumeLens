@@ -1,0 +1,4 @@
+Tony Stark
+tony@stark.io
+5 years experience automating delivery.
+Skills: Python, Bash, Docker, k8s, Jenkins, Amazon Web Services, Terraform, Git

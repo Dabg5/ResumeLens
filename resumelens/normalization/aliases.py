@@ -1,6 +1,6 @@
 """Alias table: canonical qualification -> equivalent surface forms.
 
-This is the single source of truth for stage 2. The transducers are built
+This is the single source of truth for normalization. The transducers are built
 from it, so every spelling listed here becomes a path in a transducer.
 """
 import re

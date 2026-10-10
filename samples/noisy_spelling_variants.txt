@@ -1,0 +1,4 @@
+Clark Kent
+1 year of experience.
+Skills: Javascript, ReactJS, Node js, PostgreSQL, sklearn, scikit learn, Tensor Flow, Py Torch, tensorflow
+The JSON parser is not a skill by itself.

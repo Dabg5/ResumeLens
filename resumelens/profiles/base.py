@@ -2,7 +2,7 @@
 
 A profile is an ordered sequence of categories. Each category holds the
 canonical qualifications that can satisfy it. The same structure drives the
-canonical sorting (stage 2) and the pattern automaton (stage 3).
+canonical sorting and the pattern-recognition automaton.
 """
 from dataclasses import dataclass
 

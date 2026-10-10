@@ -1,0 +1,3 @@
+Natasha Romanoff
+2 years of experience.
+Technical Skills: JavaScript, React, Postgres

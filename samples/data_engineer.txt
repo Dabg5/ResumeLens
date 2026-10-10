@@ -1,0 +1,4 @@
+Bruce Banner
+bruce.banner@example.org | (604) 555-0199
+4 years of experience building data platforms.
+Skills: Python, SQL, Py Spark, Apache Airflow, BigQuery, Git

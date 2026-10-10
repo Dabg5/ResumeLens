@@ -1,0 +1,8 @@
+Peter Parker
+peter.parker@example.com | +57 300 123 4567
+https://github.com/pparker | linkedin.com/in/pparker
+
+Bachelor of Science in Computer Science, Universidad Icesi
+2019 - 2022: Frontend developer using Javascript, Angular and REST APIs.
+2022 - present: Backend developer, 4+ years of experience with Node.js, Express.js and MongoDB.
+Tools: GitHub, Docker, Postman, Agile.
