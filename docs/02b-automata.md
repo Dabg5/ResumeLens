@@ -40,3 +40,25 @@ candidate may satisfy more than one profile.
 The Streamlit recognition view generates a diagram from each transition table;
 each category's choices share a transition label. The same five-tuple shown
 beside the diagram is used by the independent simulator.
+
+## Profile automaton diagrams
+
+The diagrams below are generated from each profile's transition table. Blue
+loops represent repeated qualifications within one category, purple arrows
+show optional epsilon transitions, and double circles mark accepting states.
+
+### Full Stack Developer
+
+![Full Stack Developer automaton](diagrams/fa_full_stack.svg)
+
+### Machine Learning Engineer
+
+![Machine Learning Engineer automaton](diagrams/fa_ml_engineer.svg)
+
+### DevOps Engineer
+
+![DevOps Engineer automaton](diagrams/fa_devops_engineer.svg)
+
+### Data Engineer
+
+![Data Engineer automaton](diagrams/fa_data_engineer.svg)

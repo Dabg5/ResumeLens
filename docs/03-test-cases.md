@@ -138,3 +138,10 @@ when it is imported, so it cannot reach the tests.
 | `test_accepted_profiles_returns_all_matches` | Several accepted profile results | Every accepted result returned in profile order | A résumé can satisfy multiple profiles; there is no score or ranking |
 | `test_unknown_profile_raises_key_error` | Unknown profile key | `KeyError` | Prevents silent classifications against undefined profiles |
 
+## Full Streamlit pipeline (`tests/test_pipeline.py`)
+
+| Test | Input | Expected | Why |
+|---|---|---|---|
+| `test_pipeline_produces_valid_dsl_and_all_profile_results` | Wednesday Addams sample | Valid `PipelineResult`, all four profile sequences, valid DSL, Markdown and HTML | Confirms each pipeline output is available to the application views |
+| `test_pipeline_classifies_reference_full_stack_resume` | Wednesday Addams sample | `full_stack` is the only accepted profile | Confirms the app's integrated result matches the task example |
+

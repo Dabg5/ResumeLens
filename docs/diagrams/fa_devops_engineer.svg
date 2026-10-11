@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1485 300" role="img" aria-labelledby="title desc">
+<title id="title">DevOps Engineer profile automaton</title>
+<desc id="desc">ε-NFA with category transitions, repetition loops and optional epsilon transitions.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#334155"/></marker></defs>
+<rect width="100%" height="100%" rx="14" fill="#f8fafc"/>
+<text x="742.5" y="30" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#0f172a">DevOps Engineer</text>
+<text x="742.5" y="51" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#475569">ε-NFA ? one or more symbols per required category</text>
+<path d="M24 175 H61" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M125 175 H246" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="187.5" y="158" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#1e293b">BASH, PYTHON</text>
+<path d="M260 153 C210 75, 350 75, 300 153" fill="none" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arrow)"/>
+<text x="280" y="90" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#1e3a8a">BASH, PYTHON</text>
+<path d="M310 175 H431" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="372.5" y="158" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#1e293b">DOCKER</text>
+<path d="M445 153 C395 75, 535 75, 485 153" fill="none" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arrow)"/>
+<text x="465" y="90" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#1e3a8a">DOCKER</text>
+<path d="M495 175 H616" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="557.5" y="158" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#1e293b">KUBERNETES</text>
+<path d="M630 153 C580 75, 720 75, 670 153" fill="none" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arrow)"/>
+<text x="650" y="90" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#1e3a8a">KUBERNETES</text>
+<path d="M680 175 H801" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="742.5" y="158" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#1e293b">GITHUB_ACTIONS, GITLAB_CI, JENKINS</text>
+<path d="M815 153 C765 75, 905 75, 855 153" fill="none" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arrow)"/>
+<text x="835" y="90" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#1e3a8a">GITHUB_ACTIONS, GITLAB_CI, JENKINS</text>
+<path d="M865 175 H986" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="927.5" y="158" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#1e293b">AWS, AZURE, GCP</text>
+<path d="M1000 153 C950 75, 1090 75, 1040 153" fill="none" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arrow)"/>
+<text x="1020" y="90" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#1e3a8a">AWS, AZURE, GCP</text>
+<path d="M1050 175 H1171" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="1112.5" y="158" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#1e293b">ANSIBLE, TERRAFORM, ε</text>
+<path d="M1185 153 C1135 75, 1275 75, 1225 153" fill="none" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arrow)"/>
+<text x="1205" y="90" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#1e3a8a">ANSIBLE, TERRAFORM</text>
+<path d="M1235 175 H1356" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="1297.5" y="158" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#1e293b">BITBUCKET, GIT, GITHUB, GITLAB</text>
+<path d="M1370 153 C1320 75, 1460 75, 1410 153" fill="none" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arrow)"/>
+<text x="1390" y="90" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#1e3a8a">BITBUCKET, GIT, GITHUB, GITLAB</text>
+<circle cx="95" cy="175" r="28" fill="#fff" stroke="#334155" stroke-width="2"/>
+<text x="95" y="180" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#0f172a">q0</text>
+<circle cx="280" cy="175" r="28" fill="#fff" stroke="#334155" stroke-width="2"/>
+<text x="280" y="180" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#0f172a">q1</text>
+<circle cx="465" cy="175" r="28" fill="#fff" stroke="#334155" stroke-width="2"/>
+<text x="465" y="180" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#0f172a">q2</text>
+<circle cx="650" cy="175" r="28" fill="#fff" stroke="#334155" stroke-width="2"/>
+<text x="650" y="180" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#0f172a">q3</text>
+<circle cx="835" cy="175" r="28" fill="#fff" stroke="#334155" stroke-width="2"/>
+<text x="835" y="180" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#0f172a">q4</text>
+<circle cx="1020" cy="175" r="28" fill="#fff" stroke="#334155" stroke-width="2"/>
+<text x="1020" y="180" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#0f172a">q5</text>
+<circle cx="1205" cy="175" r="28" fill="#fff" stroke="#334155" stroke-width="2"/>
+<text x="1205" y="180" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#0f172a">q6</text>
+<circle cx="1390" cy="175" r="29" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+<circle cx="1390" cy="175" r="23" fill="none" stroke="#15803d" stroke-width="1.4"/>
+<text x="1390" y="180" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#0f172a">q7</text>
+<text x="24" y="278" font-family="Arial,sans-serif" font-size="10" fill="#475569">Blue loops: repeat a qualification in the same category ? Purple arrows: optional ? transition ? Double circle: accepting state</text>
+</svg>
