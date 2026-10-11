@@ -128,3 +128,13 @@ when it is imported, so it cannot reach the tests.
 | `test_tuple_exposes_states_alphabet_and_regex` | Generated Full Stack five-tuple | q0 start, q6 final, optional REST_API marked with `*` | Exposes a formal model suitable for docs and diagrams |
 | `test_infer_kind_detects_nondeterminism_and_epsilon` | Competing destinations and an epsilon edge | NFA and ε-NFA respectively | Checks the formal type inference rules |
 
+## Profile classifier (`tests/test_classifier.py`)
+
+| Test | Input / Checks | Expected | Why |
+|---|---|---|---|
+| `test_classify_accepts_full_stack_and_reports_trace` | Complete Full Stack canonical sequence | Accepted with a state trace and no missing categories | Makes the recognition decision explainable |
+| `test_classify_rejects_and_reports_missing_category` | Full Stack sequence without version control | Rejected; Version control is reported missing | Exposes why a profile did not match |
+| `test_classify_all_preserves_profile_order_without_ranking` | Different sequences for all four profiles | One result per profile in declaration order | Classification checks each profile independently |
+| `test_accepted_profiles_returns_all_matches` | Several accepted profile results | Every accepted result returned in profile order | A résumé can satisfy multiple profiles; there is no score or ranking |
+| `test_unknown_profile_raises_key_error` | Unknown profile key | `KeyError` | Prevents silent classifications against undefined profiles |
+
