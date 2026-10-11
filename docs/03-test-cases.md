@@ -145,3 +145,10 @@ when it is imported, so it cannot reach the tests.
 | `test_pipeline_produces_valid_dsl_and_all_profile_results` | Wednesday Addams sample | Valid `PipelineResult`, all four profile sequences, valid DSL, Markdown and HTML | Confirms each pipeline output is available to the application views |
 | `test_pipeline_classifies_reference_full_stack_resume` | Wednesday Addams sample | `full_stack` is the only accepted profile | Confirms the app's integrated result matches the task example |
 
+## End-to-end pipeline (`tests/test_pipeline.py`)
+
+| Test | Input | Expected output | Why |
+|---|---|---|---|
+| `test_end_to_end_reference_samples_match_expected_profiles` | All seven `samples/*.txt` CVs | Wednesday and complete Full Stack → Full Stack; Mary Jane → ML; DevOps → DevOps; Bruce Banner → Data; rejected and noisy CVs → no accepted profile; every DSL validates | Checks every documented example from raw text through classification |
+| `test_missing_version_control_is_explained_in_end_to_end_result` | `rejected_missing_version_control.txt` | No acceptance; Full Stack reports Version control missing | Confirms useful rejection feedback at the end of the pipeline |
+| `test_noisy_variants_normalize_without_duplicates_and_do_not_match` | `noisy_spelling_variants.txt` | Repeated spellings collapse to canonical skills; no profile accepted | Confirms alias handling while preventing an incomplete résumé from matching |
