@@ -115,3 +115,16 @@ when it is imported, so it cannot reach the tests.
 | `test_invalid_sources_are_rejected` (8 cases) | Missing closing brace, lower-case skill, unknown profile, accepted profile without sequence, unclosed string, repeated category, unknown canonical, and a sequence outside a profile alphabet | Every source is invalid with a syntax/lexical or semantic error | Covers the language rejection rules and profile-alphabet constraints |
 | `test_markdown_renderer_includes_candidate_and_verdict` | Parsed candidate with accepted and rejected profile results | Markdown includes candidate name and both verdicts | Confirms the summary contains the recognition outcome |
 | `test_html_renderer_escapes_text_and_shows_verdict_badges` | Candidate name containing markup and accepted/rejected results | Markup is escaped and both badge classes appear | Prevents model text from becoming executable HTML and distinguishes outcomes |
+
+## Profile automata (`tests/test_automata.py`)
+
+| Test | Input / Checks | Expected | Why |
+|---|---|---|---|
+| `test_each_profile_automaton_kind_matches_its_definition` | Each generated transition table | ML and Data are DFA; Full Stack and DevOps are ε-NFA | Confirms implementation matches the declared formal model |
+| `test_profile_automata_accept_and_reject_expected_sequences` | One complete sequence and its missing-version-control prefix for each profile | Complete sequences accepted; incomplete sequences rejected by pyformlang and the independent simulator | Verifies category ordering and final-state behavior |
+| `test_full_stack_accepts_with_and_without_optional_api` | Full Stack sequence with and without REST_API | Both accepted | The optional category is skipped through ε |
+| `test_full_stack_rejects_missing_version_control` | Full Stack sequence without GIT/GITHUB/GITLAB/BITBUCKET | Rejected | Version control is mandatory |
+| `test_choices_within_category_are_alternatives` | ML profile using PANDAS or NUMPY | Both sequences accepted | Each category offers alternatives, not an all-of requirement |
+| `test_tuple_exposes_states_alphabet_and_regex` | Generated Full Stack five-tuple | q0 start, q6 final, optional REST_API marked with `*` | Exposes a formal model suitable for docs and diagrams |
+| `test_infer_kind_detects_nondeterminism_and_epsilon` | Competing destinations and an epsilon edge | NFA and ε-NFA respectively | Checks the formal type inference rules |
+
