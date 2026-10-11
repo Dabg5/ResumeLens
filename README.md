@@ -1,27 +1,51 @@
 # ResumeLens
-An application that processes textual résumés and determines whether the qualifications identified in a candidate's résumé satisfy patterns defined for a professional profile.
 
-Formal language-based résumé screening (CyED3 2026-2, Integrative Task 1).
-Pipeline: regex extraction -> finite-state transducers -> finite automata -> textX DSL.
+ResumeLens processes plain-text resumes and checks whether their extracted qualifications match the formal pattern of a professional profile. It reports acceptance, a recognition trace, and missing required categories; it does not rank candidates.
+
+Formal-language-based resume screening for CyED3 2026-2, Integrative Task 1.
 
 ## Team
+
 - Nicolas Mejia
 - Daniel Barragan
 - Jacobo Rodriguez
 
-## IDE
-- PyCharm
+## Requirements
 
-## Run
+- Python 3.12
+- Graphviz is needed only to export automaton diagrams from `resumelens/viz/diagrams.py`. The Streamlit app itself does not require the local Graphviz executable.
+
+## Run locally
+
+### Windows PowerShell
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python -m pytest -q
+python -m streamlit run app.py
 ```
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-pytest
-streamlit run app.py
+
+### macOS or Linux
+
+```sh
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m pytest -q
+python -m streamlit run app.py
 ```
-Exporting diagrams to SVG (`resumelens/viz/diagrams.py`) needs the Graphviz program installed (Windows: installer from graphviz.org or `winget install graphviz`; Linux: `sudo apt install graphviz`; macOS: `brew install graphviz`). The Streamlit app does not need it.
 
-Deploy: Streamlit Community Cloud with Python 3.12 (Advanced settings); `packages.txt` installs graphviz.
+## Deploy to Streamlit Community Cloud
 
-## Layout
-See `docs/01-architecture.md`.
+Create an app from the `Dabg5/ResumeLens` GitHub repository, using the `main` branch and `app.py` as the entrypoint. In Advanced settings, select Python 3.12. The root `requirements.txt` installs Python packages, and `packages.txt` installs the Graphviz system package.
+
+**Live app:** Pending deployment.
+
+## Project documentation
+
+- [Architecture](docs/01-architecture.md)
+- [Automata and classification](docs/02b-automata.md)
+- [Test cases](docs/03-test-cases.md)
+- [Research review](docs/04-literature-review.md)
