@@ -41,7 +41,7 @@ python -m streamlit run app.py
 
 Create an app from the `Dabg5/ResumeLens` GitHub repository, using the `main` branch and `app.py` as the entrypoint. In Advanced settings, select Python 3.12. The root `requirements.txt` installs Python packages, and `packages.txt` installs the Graphviz system package.
 
-**Live app:** Pending deployment.
+**Live app:** https://resumelens-fd9gqbfna3nbsnstxjte3i.streamlit.app/
 
 ## Project documentation
 

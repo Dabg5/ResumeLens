@@ -44,7 +44,7 @@ beside the diagram is used by the independent simulator.
 ## Profile automaton diagrams
 
 The diagrams below are generated from each profile's transition table. Blue
-loops represent repeated qualifications within one category, purple arrows
+loops represent repeated qualifications within one category, dashed amber arrows
 show optional epsilon transitions, and double circles mark accepting states.
 
 ### Full Stack Developer
