@@ -48,7 +48,7 @@ def render(
         }
         for n in normalized
     ]
-    st.dataframe(table_data, use_container_width=True)
+    st.dataframe(table_data, width="stretch")
 
     # --- Section 2: Profile-driven Canonical Sorting ---
     st.subheader("2. Profile-Driven Canonical Sorting")

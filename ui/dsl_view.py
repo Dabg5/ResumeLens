@@ -1,6 +1,5 @@
 """Streamlit view for candidate DSL editing and rendered previews."""
 import streamlit as st
-import streamlit.components.v1 as components
 
 from resumelens.dsl.renderer import to_html, to_markdown
 from resumelens.dsl.serializer import CandidateData, to_dsl
@@ -34,7 +33,7 @@ def render(data: CandidateData) -> None:
     markdown = to_markdown(model)
     html = to_html(model)
     st.subheader("Rendered candidate card")
-    components.html(html, height=520, scrolling=True)
+    st.iframe(html, height=520)
     col_md, col_html = st.columns(2)
     col_md.download_button(
         "Download Markdown", markdown, file_name="candidate.md", mime="text/markdown"
